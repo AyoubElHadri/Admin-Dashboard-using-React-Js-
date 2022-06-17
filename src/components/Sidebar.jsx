@@ -6,9 +6,16 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import { links } from '../data/dummy';
 import { itemsToOrder } from '@syncfusion/ej2/treemap';
+import { useStateContext } from '../contexts/ContextProvider';
 const SideBar = () => {
 
-  const activeMenu = true;
+  const handleCloseSideBar = () => {
+    if (activeMenu !== undefined && screenSize <= 900) {
+      setActiveMenu(false);
+    }
+  };
+
+  const { activeMenu, setActiveMenu, screenSize} = useStateContext();
   const activeLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text md-m2';
   const normalLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2';
 
@@ -18,13 +25,16 @@ const SideBar = () => {
       {activeMenu && (
         <>
         <div className='flex justify-between items-center'>
-          <Link to='/' onClick={()=>{}} className='items-center gap-3
+          <Link to='/' onClick={handleCloseSideBar } 
+          className='items-center gap-3
           ml-3 mt-4 flex  text-xl font-extrabold tracking-tight
            dark:text-white text-slate-900' >
           <SiShopware /> <span>Shoppy</span>
           </Link>
           <TooltipComponent content="Menu" position="BottomCenter">
-            <button type='button' onClick={()=> {}}
+            <button type='button' onClick={()=> 
+              setActiveMenu((prevActiveMenu) => !prevActiveMenu)
+            }
             className='text-xl rounded-full p-3 hover:bg-light-gray mt-4
             block md:hidden '>
               <MdOutlineCancel />
@@ -41,7 +51,7 @@ const SideBar = () => {
                   <NavLink
                   to={`/${link.name}`}
                   key={link.name}
-                  onClick={()=>{}}
+                  onClick={handleCloseSideBar}
                   className ={({ isActive })=>
                   isActive ? activeLink : normalLink
                 }>
