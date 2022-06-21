@@ -52,7 +52,7 @@ const App = () => {
           <div>
             {themeSettings && <ThemeSettings />}
             <Routes>
-              <Route path="/" element="ECommerce" />
+              <Route path="/" element={(<Ecommerce />)} />
                 {/* dashboard  */}
                 <Route path="/" element={(<Ecommerce />)} />
                 <Route path="/ecommerce" element={(<Ecommerce />)} />
