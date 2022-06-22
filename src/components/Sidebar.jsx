@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { SiShopware } from 'react-icons/si';
-import { MdOutlineCancel, mdOutlineCancel } from 'react-icons/md';
+import { MdOutlineCancel } from 'react-icons/md';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import { links } from '../data/dummy';
@@ -37,7 +37,7 @@ const SideBar = () => {
               }
                 className='text-xl rounded-full p-3 hover:bg-light-gray mt-4
             block md:hidden '>
-                <MdOutlineCancel />
+                <MdOutlineCancel color={currentColor}/>
               </button>
             </TooltipComponent>
           </div>

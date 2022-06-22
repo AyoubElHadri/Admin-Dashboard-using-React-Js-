@@ -21,7 +21,7 @@ const ThemeSettings = () => {
             borderRadius: '50%'}}
           className='text-2xl hover:drop-shadow-xl hover:bg-light-gray'
           >
-            <MdOutlineCancel />
+            <MdOutlineCancel color={currentColor}/>
 
           </button>
         </div>
